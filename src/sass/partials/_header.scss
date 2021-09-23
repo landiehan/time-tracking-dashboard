@@ -1,0 +1,19 @@
+@use '../abstracts/palette' as *;
+@use '../abstracts/breakpoints' as *;
+
+.header {
+  position: sticky;
+  top: -7.5rem;
+  z-index: 1000;
+
+  @media screen and (max-width: 1099.9px) {
+    &.sticky {
+      margin: 0 -5%;
+    }
+  }
+
+  @media #{$mq-large-and-up} {
+    display: flex;
+    flex-direction: column;
+  }
+}

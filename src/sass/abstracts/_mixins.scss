@@ -1,0 +1,26 @@
+@use 'sass:meta';
+
+@mixin colorful-bar($colors...) {
+  @debug meta.keywords($colors);
+
+  @each $name, $color in meta.keywords($colors) {
+    &.#{$name} {
+      background-color: $color;
+      .stat-card:hover & {
+        background-color: lighten($color: $color, $amount: 1%);
+      }
+    }
+  }
+}
+
+@mixin visually-hidden {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}

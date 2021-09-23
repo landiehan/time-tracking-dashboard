@@ -1,0 +1,23 @@
+@use '../abstracts/breakpoints' as *;
+
+.grid {
+  display: grid;
+  padding: 4rem 5%;
+  row-gap: 2rem;
+
+  // @media #{$mq-medium-and-up} {
+  //   max-width: 700px;
+  // }
+
+  // Switch to two-column layout
+  @media #{$mq-large-and-up} {
+    grid-template-columns: 300px 1fr;
+    column-gap: 4rem;
+    padding: 0 5%;
+
+    height: 100vh;
+    max-width: 1440px;
+    margin: 0 auto;
+    align-content: center;
+  }
+}

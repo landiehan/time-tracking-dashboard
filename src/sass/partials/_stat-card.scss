@@ -1,0 +1,60 @@
+@use '../abstracts/palette' as *;
+@use '../abstracts/breakpoints' as *;
+@use '../partials/stat-card-bar';
+
+.stat-cards {
+  display: grid;
+  row-gap: 2rem;
+
+  @media #{$mq-medium-and-up} {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 2rem;
+  }
+
+  @media #{$mq-large-and-up} {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.stat-card {
+  position: relative;
+
+  &__title {
+    color: white;
+  }
+
+  &__menu-toggle {
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+  }
+
+  &__time {
+    font-size: 3.5em;
+    color: white;
+    margin-top: 1.5rem;
+    width: max-content;
+  }
+
+  &__last-time {
+    color: $desaturated-blue;
+    margin: 0.8rem 0 0.5rem;
+  }
+}
+
+.stat-card-content {
+  border-radius: 1rem;
+  background-color: $dark-blue;
+  padding: 1.5rem;
+  position: relative;
+  margin-top: -1rem;
+
+  .stat-card:hover & {
+    background-color: lighten($color: $dark-blue, $amount: 10%);
+  }
+}
+
+.stat-card-header {
+  display: flex;
+  justify-content: space-between;
+}

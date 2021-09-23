@@ -1,0 +1,81 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Time Tracking Dashboard
+    link(rel="icon", href=require('./assets/favicon-32x32.png'))
+
+    link(rel="preconnect", href="https://fonts.googleapis.com")
+    link(rel="preconnect", href="https://fonts.gstatic.com", crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap", rel="stylesheet")
+  body
+    .grid
+      //- profile
+      div.header 
+        .user-card 
+          img(src=require('./assets/image-jeremy.png'), alt="").user-avatar
+          div.user-card-header
+            p.user-name-prefix Report for
+            h1.user-name Jeremy Robson
+
+        //- filters
+        form(action="").filters-bar 
+          .filter
+            input(type="radio", name="filter", id="daily", data-timeframe="daily").filter-input 
+            label(for="daily").filter-label Daily
+          .filter
+            input(type="radio", name="filter", id="weekly", data-timeframe="weekly").filter-input 
+            label(for="weekly").filter-label Weekly
+          .filter
+            input(type="radio", name="filter", id="monthly", data-timeframe="monthly").filter-input  
+            label(for="monthly").filter-label Monthly
+
+      //- stats grid
+      .stat-cards
+        - 
+          var cards = [
+            {
+              title: 'Work',
+              image: 'icon-work',
+              color: 'orange'
+            },
+            {
+              title: 'Play',
+              image: 'icon-play',
+              color: 'blue'
+            },
+            {
+              title: 'Study',
+              image: 'icon-study',
+              color: 'pink'
+            },
+            {
+              title: 'Exercise',
+              image: 'icon-exercise',
+              color: 'green'
+            },
+            {
+              title: 'Social',
+              image: 'icon-social',
+              color: 'purple'
+            },
+            {
+              title: 'Self Care',
+              image: 'icon-self-care',
+              color: 'yellow'
+            }                                     
+          ]
+
+        each card in cards
+          .stat-card
+            div(class=`stat-card-bar ${card.color}`)
+              img(src=require(`./assets/${card.image}.svg`), alt="")
+
+            .stat-card-content
+              .stat-card-header
+                h2.stat-card__title #{card.title}
+                button.stat-card__menu-toggle
+                  img(src=require('./assets/icon-ellipsis.svg') alt="")          
+              p.stat-card__time Loading...
+              p.stat-card__last-time Loading...

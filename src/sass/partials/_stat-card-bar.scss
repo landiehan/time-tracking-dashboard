@@ -1,0 +1,39 @@
+@use '../abstracts/mixins' as *;
+
+$orange: hsl(15, 100%, 70%);
+$blue: hsl(195, 74%, 62%);
+$pink: hsl(348, 100%, 68%);
+$green: hsl(145, 58%, 55%);
+$purple: hsl(264, 64%, 52%);
+$yellow: hsl(43, 84%, 65%);
+
+.stat-card-bar {
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 1rem;
+  height: 3.5rem;
+  position: relative;
+  overflow: hidden;
+  border-radius: 1rem 1rem 0 0;
+
+  @include colorful-bar(
+    $orange: $orange,
+    $blue: $blue,
+    $pink: $pink,
+    $green: $green,
+    $purple: $purple,
+    $yellow: $yellow
+  );
+}
+
+.stat-card-bar img {
+  position: absolute;
+  height: 4rem;
+  bottom: 0;
+  transform-origin: bottom;
+  transition: transform 0.3s;
+}
+
+.stat-card:hover .stat-card-bar img {
+  transform: rotate(-45deg);
+}

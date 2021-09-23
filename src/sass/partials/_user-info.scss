@@ -1,0 +1,55 @@
+@use '../abstracts/palette' as *;
+@use '../abstracts/breakpoints' as *;
+
+.user-card {
+  background-color: $blue;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  position: relative;
+  display: flex;
+
+  @media #{$mq-large-and-up} {
+    display: block;
+    flex: 1;
+  }
+}
+
+.user-card-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 1rem;
+
+  @media #{$mq-large-and-up} {
+    margin-left: 0;
+  }
+}
+
+.user-avatar {
+  width: 4rem;
+  border-radius: 50%;
+  border: 3px solid white;
+
+  @media #{$mq-large-and-up} {
+    width: 5rem;
+  }
+}
+
+.user-name-prefix {
+  color: $desaturated-blue;
+
+  @media #{$mq-large-and-up} {
+    margin: 1rem 0;
+  }
+}
+
+.user-name {
+  color: $pale-blue;
+  font-weight: 300;
+  font-size: 20px;
+
+  @media #{$mq-large-and-up} {
+    font-size: 3rem;
+    line-height: 1;
+  }
+}

@@ -1,0 +1,9 @@
+@use '../abstracts/palette' as *;
+
+html {
+  font-family: 'Rubik', sans-serif;
+}
+
+body {
+  background-color: $very-dark-blue;
+}
